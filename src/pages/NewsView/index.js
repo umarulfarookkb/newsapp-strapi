@@ -18,7 +18,7 @@ export default function NewsView() {
   async function deleteNews() {
     if (window.confirm("Do you want to delete this news?")) {
       await axios.delete(`https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`);
-      window.history.pushState(null, "", "/news");
+      window.history.pushState(null, "", "/");
       window.location.reload();    
     }
   }
