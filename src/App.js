@@ -18,7 +18,7 @@ function App() {
               <Route path="newsview/:id" element={<NewsView />}/>
                 
             
-              <Route exact path="/" element={<Navigate to="/news" />}/>
+              {/* <Route exact path="/" element={<Navigate to="/news" />}/> */}
                 
               
               <Route path="*" element={<NewsList />}/>
