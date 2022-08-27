@@ -9,7 +9,7 @@ export default function NewsView() {
 
   useEffect(() => {
     async function getNews() {
-      const data = await axios.get(`http://localhost:1337/api/newsposts/${id}`);
+      const data = await axios.get(`https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`);
       setNews(data);
     }
     getNews();
@@ -17,7 +17,7 @@ export default function NewsView() {
   console.log(news)
   async function deleteNews() {
     if (window.confirm("Do you want to delete this news?")) {
-      await axios.delete(`http://localhost:1337/api/newsposts/${id}`);
+      await axios.delete(`https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`);
       window.history.pushState(null, "", "/news");
       window.location.reload();    
     }

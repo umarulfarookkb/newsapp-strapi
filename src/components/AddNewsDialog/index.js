@@ -11,7 +11,7 @@ export default function AddNewsDialog({ closeModal }) {
     const lang = window.addNewsLocales.value;
     
     setDisable(true);
-    await axios.post("http://localhost:1337/api/newsposts", {
+    await axios.post("https://mighty-bayou-30636.herokuapp.com/api/newsposts", {
       "data": {
         "title": title,
         "imageUrl": imageUrl,
