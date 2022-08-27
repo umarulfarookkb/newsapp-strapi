@@ -12,7 +12,7 @@ function App() {
         <main className="main">
           <BrowserRouter>
             <Routes>
-              <Route path="/news" element={<NewsList />}/>
+              <Route path="/" element={<NewsList />}/>
                 
               
               <Route path="newsview/:id" element={<NewsView />}/>
