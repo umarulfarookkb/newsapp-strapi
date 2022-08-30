@@ -9,8 +9,8 @@
     display: flex;
   }
   .newscardimg {
-    width: 146px;
-    height: 146px;
+    width: 200px;
+    height: 150px;
     background-color: darkgray;
     background-repeat: no-repeat;
     background-size: cover;

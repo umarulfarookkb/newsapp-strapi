@@ -22,6 +22,8 @@ export default function NewsView() {
       window.location.reload();    
     }
   }
+
+ 
   return (
     <div className="newsview">
       <div
