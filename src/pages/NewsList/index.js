@@ -12,7 +12,8 @@ function NewsList() {
   useEffect(() => {
     async function fetchNews() {
       const data = await axios.get(
-        "https://mighty-bayou-30636.herokuapp.com/api/newsposts?locale=" + locale
+        "https://mighty-bayou-30636.herokuapp.com/api/newsposts?locale=" +
+          locale
       );
       // console.log(data)
       setNewsList(data);
@@ -49,13 +50,21 @@ function NewsList() {
         </div>
       </div>
       <div>
-        {newsList?.data?.data?.map((newsItem, i) => {
-          // console.log(newsItem)
-          return (
-            //  <h1 key={i}>{newsItem.data.data[i].attributes.title}</h1>
-            <NewsCard newsItem={newsItem.attributes} id={newsItem.id} key={i} />
-          );
-        })}
+        {newsList?.data?.data
+          ?.sort((a, b) =>
+            b.attributes.createdAt.localeCompare(a.attributes.createdAt)
+          )
+          ?.map((newsItem, i) => {
+            // console.log(newsItem)
+            return (
+              //  <h1 key={i}>{newsItem.attributes.title}</h1>
+              <NewsCard
+                newsItem={newsItem.attributes}
+                id={newsItem.id}
+                key={i}
+              />
+            );
+          })}
       </div>
       {showModal ? <AddNewsDialog closeModal={showAddNewsDialog} /> : null}
     </div>
