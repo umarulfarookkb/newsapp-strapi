@@ -4,7 +4,7 @@ export default function NewsCard({ newsItem, id }) {
   const { title, body, imageUrl } = newsItem;
   const synopsis = body.slice(0, 150);
   return (
-    <Link to={`/newsview/${id} `}>
+    <Link to={`/newsview/${id}`}>
       <div className="newscard">
         <div
         // style={{ backgroundImage: `url(${imageUrl})` }}
