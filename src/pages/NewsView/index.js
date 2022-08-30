@@ -2,6 +2,7 @@ import "./NewsView.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Button } from "@cred/neopop-web/lib/components";
 
 export default function NewsView() {
   let { id } = useParams();
@@ -9,26 +10,31 @@ export default function NewsView() {
 
   useEffect(() => {
     async function getNews() {
-      const data = await axios.get(`https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`);
+      const data = await axios.get(
+        `https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`
+      );
       setNews(data);
     }
     getNews();
   }, [id]);
-  console.log(news)
+  console.log(news);
   async function deleteNews() {
     if (window.confirm("Do you want to delete this news?")) {
-      await axios.delete(`https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`);
+      await axios.delete(
+        `https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`
+      );
       window.history.pushState(null, "", "/");
-      window.location.reload();    
+      window.location.reload();
     }
   }
 
- 
   return (
     <div className="newsview">
       <div
         className="newsviewimg"
-        style={{ backgroundImage: `url(${news?.data.data.attributes.imageUrl})` }}
+        style={{
+          backgroundImage: `url(${news?.data.data.attributes.imageUrl})`,
+        }}
       ></div>
       <div>
         <div className="newsviewtitlesection">
@@ -42,11 +48,20 @@ export default function NewsView() {
             <span style={{ flex: "1", color: "rgb(99 98 98)" }}>
               Date: <span>{news?.data.data.attributes.createdAt}</span>
             </span>
-            <span>
-              <button className="btn-danger" onClick={deleteNews}>
-                Delete
+            {/* <span>
+              <button className="btn-danger" >
+                
               </button>
-            </span>
+            </span> */}
+
+            <Button
+              variant="primary"
+              kind="flat"
+              size="small"
+              onClick={deleteNews}
+            >
+              Delete
+            </Button>
           </div>
         </div>
         <div className="newsviewbody">{news?.data.data.attributes.body}</div>
