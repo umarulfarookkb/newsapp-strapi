@@ -9,7 +9,7 @@ export default function NewsCard({ newsItem, id }) {
         <div
         // style={{ backgroundImage: `url(${imageUrl})` }}
         >
-          <img src={imageUrl} className="newscardimg" />
+          <img src={imageUrl} alt="img" className="newscardimg" />
         </div>
         <div>
           <div className="newscardtitle">
