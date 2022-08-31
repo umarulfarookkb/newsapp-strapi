@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "@cred/neopop-web/lib/components";
+import { showToast } from '@cred/neopop-web/lib/components';
+import { ToastContainer } from '@cred/neopop-web/lib/components';
 
 export default function NewsView() {
   let { id } = useParams();
@@ -20,16 +22,20 @@ export default function NewsView() {
   console.log(news);
   async function deleteNews() {
     if (window.confirm("Do you want to delete this news?")) {
+      showToast('News Deleted Successfully', { type: 'success', autoCloseTime: '10000' });
       await axios.delete(
         `https://mighty-bayou-30636.herokuapp.com/api/newsposts/${id}`
       );
       window.history.pushState(null, "", "/");
+      
       window.location.reload();
+      
     }
   }
 
   return (
     <div className="newsview">
+      <ToastContainer />
       <div
         className="newsviewimg"
         style={{
@@ -56,7 +62,7 @@ export default function NewsView() {
 
             <Button
               variant="primary"
-              kind="flat"
+              kind="elevated"
               size="small"
               onClick={deleteNews}
             >

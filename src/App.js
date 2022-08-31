@@ -1,16 +1,17 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Header from "./components/Header";
+import { BrowserRouter, Route, Routes,  } from "react-router-dom";
 import NewsList from "./pages/NewsList";
 import NewsView from "./pages/NewsView";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <Header />
+    <BrowserRouter>
+      <Header/>
       <div className="container">
         <main className="main">
-          <BrowserRouter>
+          
             <Routes>
               <Route path="/" element={<NewsList />}/>
                 
@@ -18,16 +19,17 @@ function App() {
               <Route path="newsview/:id" element={<NewsView />}/>
                 
             
-              <Route exact path="/" element={<Navigate to="/news" />}/>
+              {/* <Route exact path="/" element={<Navigate to="/news" />}/> */}
                 
               
               <Route path="*" element={<NewsList />}/>
                 
            
             </Routes>
-          </BrowserRouter>
+          
         </main>
       </div>
+      </BrowserRouter>
     </>
   );
 }

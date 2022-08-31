@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import NewsCard from "../../components/NewsCard";
 import AddNewsDialog from "../../components/AddNewsDialog";
+import { Button } from "@cred/neopop-web/lib/components";
 
 function NewsList() {
   const [newsList, setNewsList] = useState({});
@@ -39,7 +40,41 @@ function NewsList() {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ marginRight: "4px" }}>
-            <button onClick={showAddNewsDialog}>Add News</button>
+            <Button
+              colorConfig={{
+                backgroundColor: "#0d0d0d",
+                borderColor: "#E5FE40",
+                color: "#ffffff",
+                disabledColors: {
+                  backgroundColor: "#8A8A8A",
+                  color: "rgba(255,255,255, 0.5)",
+                  edgeColors: {
+                    bottom: "#E0E0E0",
+                    left: "transparent",
+                    right: "#EFEFEF",
+                    top: "transparent",
+                  },
+                },
+                edgeColors: {
+                  bottom: "#67721F",
+                  left: "transparent",
+                  right: "#A2B42D",
+                  top: "transparent",
+                },
+              }}
+              colorMode="dark"
+              kind="elevated"
+              size="medium"
+              textStyle={{
+                fontSize: 18,
+                fontType: "heading",
+                fontWeight: 800,
+              }}
+              variant="secondary"
+              onClick={showAddNewsDialog}
+            >
+              Add News
+            </Button>
           </div>
           <div>
             <select name="locales" id="locales" onChange={setLang}>

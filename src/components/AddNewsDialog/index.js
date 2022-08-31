@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Button } from "@cred/neopop-web/lib/components";
 
 export default function AddNewsDialog({ closeModal }) {
   const [disable, setDisable] = useState(false);
@@ -9,16 +10,16 @@ export default function AddNewsDialog({ closeModal }) {
     const writtenBy = window.newsWrittenBy.value;
     const body = window.newsBody.value;
     const lang = window.addNewsLocales.value;
-    
+
     setDisable(true);
     await axios.post("https://mighty-bayou-30636.herokuapp.com/api/newsposts", {
-      "data": {
-        "title": title,
-        "imageUrl": imageUrl,
-        "writtenBy": writtenBy,
-        "body": body,
-        "locale": lang
-      }
+      data: {
+        title: title,
+        imageUrl: imageUrl,
+        writtenBy: writtenBy,
+        body: body,
+        locale: lang,
+      },
     });
     window.location.reload();
     setDisable(false);
@@ -88,16 +89,28 @@ export default function AddNewsDialog({ closeModal }) {
           </div>
         </div>
         <div className="modal-footer">
-          <button
+          <Button
+            variant="primary"
+            kind="elevated"
+            size="small"
+            colorMode="dark"
             disabled={disable}
             className="btn-danger"
             onClick={closeModal}
           >
             Cancel
-          </button>
-          <button disabled={disable} className="btn" onClick={saveNews}>
+          </Button>
+          <Button
+            variant="primary"
+            kind="elevated"
+            size="small"
+            colorMode="dark"
+            disabled={disable}
+            className="btn"
+            onClick={saveNews}
+          >
             Save
-          </button>
+          </Button>
         </div>
       </div>
     </div>
