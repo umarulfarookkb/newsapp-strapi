@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import { BrowserRouter, Route, Routes  } from "react-router-dom";
 import NewsList from "./pages/NewsList";
 import NewsView from "./pages/NewsView";
 import Header from "./components/Header";
